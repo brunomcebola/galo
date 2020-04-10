@@ -12,7 +12,7 @@ int main(){
     int mode,keep=2;
     do{
         keep=2;
-        char tab[3][3]={{'_','_','_'},{'_','_','_'}};
+        char tab[3][3]={{'_','_','_'},{'_','_','_'},{' ', ' ', ' '}};
         printf("Bem vindo ao seu jogo do galo!\n\n");
         printf("Regras:\n");
         printf(" - O primeiro jogador e o X e o segundo a O\n");
@@ -64,7 +64,7 @@ void game(int mode, char tab[3][3]){
                 c--;
                 if(l<0 || l>=3 || c<0 || c>=3){printf("Casa invalida\n");}
                 else{
-                    if(tab[l][c]=='_' || !tab[l][c]){
+                    if(tab[l][c]=='_' || !tab[l][c] || tab[l][c]==' '){
                         tab[l][c]='X';
                         check=compara(tab);
                         if(check==1){end=1;}
@@ -80,7 +80,7 @@ void game(int mode, char tab[3][3]){
                     c = rand()%3;
                     l = rand()%3;
                 }while(l<0 || l>=3 || c<0 || c>=3);
-                if(tab[l][c]=='_' || !tab[l][c]){
+                if(tab[l][c]=='_' || !tab[l][c] || tab[l][c]==' '){
                     tab[l][c]='O';
                     check=compara(tab);
                     if(check==1){end=1;}
@@ -105,7 +105,7 @@ void game(int mode, char tab[3][3]){
             c--;
             if(l<0 || l>=3 || c<0 || c>=3){printf("Casa invalida\n");}
             else{
-                if(tab[l][c]=='_' || !tab[l][c]){
+                if(tab[l][c]=='_' || !tab[l][c] || tab[l][c]==' '){
                     if(j==1){tab[l][c]='X';}
                     else{tab[l][c]='O';}
                     check=compara(tab);
